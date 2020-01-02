@@ -9,7 +9,7 @@ import (
 // connect database - previleges?
 
 // handlefunc, start server
-var tmpl = template.Must(template.ParseGlob("../../ui/templates/*"))
+var tmpl = template.Must(template.ParseGlob("/UI/templates/*"))
 
 func index(w http.ResponseWriter, r *http.Request) {
 	tmpl.ExecuteTemplate(w, "index.layout", nil)
@@ -21,9 +21,9 @@ func checkin(w http.ResponseWriter, r *http.Request) {
 	tmpl.ExecuteTemplate(w, "checkin.html", nil)
 }
 func main() {
-	fs := http.FileServer(http.Dir("../../ui/assets"))
+	fs := http.FileServer(http.Dir("/UI/assets"))
 	mux := http.NewServeMux()
-	mux.Handle("/ui/assets/", http.StripPrefix("../../ui/assets/", fs))
+	mux.Handle("/UI/assets/", http.StripPrefix("/UI/assets/", fs))
 	mux.HandleFunc("/", index)
 	mux.HandleFunc("/book", book)
 	mux.HandleFunc("/checkin", book)
