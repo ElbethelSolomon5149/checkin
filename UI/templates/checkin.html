@@ -9,4 +9,11 @@
 
 {{ define "checkin.content" }}
 <h1>Checkin</h1>
+<body>
+    <form action="/action_page.php" method="get">
+        Name:<input type="text" name="name"><br>
+        Email:<input type="email" name="email"><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
 {{ end }}
